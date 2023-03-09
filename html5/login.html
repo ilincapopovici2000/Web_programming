@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pizza for everyone</title>
+		<link href='style_login.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+	</head>
+	<body>
+	<!-- header -->
+		<header>
+			<!-- meniu -->
+			<nav>
+			<div class="navbar">
+				<div class="menu">
+						<i class="fa fa-heart" style="fontsize:60px;color:purple;"></i>
+						<div><a href="signup.html">SIGN UP</a></div>
+						<div><a href="login.html">LOGIN</a></div>
+						<div class="subnav">
+    							<button class="subnavbtn"><a href="lista_comenzi.html">COMENZI</a> <i class="fa fa-caret-down"></i></button>
+    							<div class="subnav-content">
+      								<a href="meniu.html">MENIU</a>
+   							</div>
+						</div>
+				</div>
+			</div>
+			<img id="home" src="img_trans.gif" width="1" height="1">
+			<img id="next" src="img_trans.gif" width="1" height="1">
+			</nav>
+		</header>
+			<!-- logo -->
+			<figure>
+				<div id="div1">
+					<div id="div2">
+					<img src="pizza-logo-design-template_15146-192.jpg" alt="Pizza logo" width="170" height="160">
+					</div>
+				<figcaption>Pizza for everyone - logo</figcaption>
+				</div>
+			</figure>
+	<!-- continut principal -->
+		<main>
+			<section>
+			<h2> Login </h2>
+			<form action="abc" method="get">
+  				<label for="uname">Username:</label><br>
+  				<input type="text" id="uname" name="uname" maxlength="10">
+				<canvas id="myCanvas" width="40" height="20"></canvas><br><br>
+				<script>
+				function validate_text(input) { 
+					var ok=1;
+					for(var i=0; i<input.length;i++)
+						if(input[i].toUpperCase() == input[i] || Number.isInteger(input[i])){
+							ok=0;
+						}	
+					const canvas = document.getElementById('myCanvas');
+					const context = canvas.getContext('2d');
+					const centerX = canvas.width / 2;
+					const centerY = canvas.height / 2;
+					const radius = 6;
+
+					context.beginPath();
+					if(ok==0) context.fillStyle = 'red';
+					else context.fillStyle = 'green';
+					context.strokeStyle = '#0077aa47';
+					context.lineWidth = 2;
+
+					context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+					context.fill();
+					context.stroke();
+				}
+				const input = document.querySelector('input')  
+				input.addEventListener('change', (e) => {  
+  				validate_text(e.target.value);  
+				});
+				</script>
+  				<label for="passw">Parola:</label><br>
+  				<input type="password" id="passw" name="passw">
+				<canvas id="myCanvas2" width="40" height="20"></canvas><br><br>
+				<script>
+				function validate_passw(input) { 
+					var pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!])(?=.{3,})/;
+					var result = pattern.test(input);
+					const canvas = document.getElementById('myCanvas2');
+					const context = canvas.getContext('2d');
+					const centerX = canvas.width / 2;
+					const centerY = canvas.height / 2;
+					const radius = 6;
+
+					context.beginPath();
+	
+					if(result == false) context.fillStyle = 'red';
+					else context.fillStyle = 'green';
+
+					context.strokeStyle = '#0077aa47';
+					context.lineWidth = 2;
+
+					context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+					context.fill();
+					context.stroke();
+				}
+				/*
+				var myElem = document.getElementById("passw");
+				myElem.addEventListener('change', (e) => {  
+  				validate_passw(e.target.value);  
+				});*/
+				var myElem = document.getElementById("passw");
+				console.log(document.getElementById("passw").value);
+				myElem.addEventListener('change', (e) => {  
+  				validate_passw(e.target.value);  
+				});
+				</script>
+				<a href="fp.html" target="_blank">Ati uitat parola?</a><br><br>
+				<input type="submit" name="login" value="Login">
+			</form>
+			
+			</section>
+			
+		</main> 
+	
+	<!-- footer -->
+		<footer>
+		<div class="footer">
+			<div>
+			<hr>
+			&copy; Ilinca Popovici- 01.03.2022
+			</div> 
+		</div>
+		</footer>
+	</body>
+
+</html>

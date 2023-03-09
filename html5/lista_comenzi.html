@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pizza for everyone</title>
+		<link href='style_comenzi.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script>
+		
+		$(document).ready(function(){
+			document.getElementById("myDropdown").classList.toggle("show");
+			$('#myInput').on('keyup',function () {
+				var value=$(this).val().toUpperCase();
+				$listItems=$('a');
+				$listItems.filter(function(){
+					$(this).toggle($(this).text().toUpperCase().indexOf(value) > -1);	
+				});
+			});
+			 $("#Input").on("keyup", function() {
+    				var value = $(this).val().toLowerCase();
+    				$("#table tr").filter(function() {
+      					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    				});
+  			});
+		});
+		</script>
+	</head>
+	<body>
+	<!-- header -->
+		<header>
+			<!-- meniu -->
+			<nav>
+			<div class="navbar">
+				<div class="menu">
+
+						<i class="fa fa-heart" style="fontsize:60px;color:purple;"></i>
+						<div><a href="signup.html">SIGN UP</a></div>
+						<div><a href="login.html">LOGIN</a></div>
+						<div class="subnav">
+    							<button class="subnavbtn"><a href="lista_comenzi.html">COMENZI</a> <i class="fa fa-caret-down"></i></button>
+    							<div class="subnav-content">
+      								<a href="meniu.html">MENIU</a>
+   							</div>
+						</div>
+				</div>
+			</div>
+			<img id="home" src="img_trans.gif" width="1" height="1">
+			<img id="next" src="img_trans.gif" width="1" height="1">
+			</nav>
+		</header>
+			<!-- logo -->
+			<figure>
+				<div id="div1">
+					<div id="div2">
+					<img src="pizza-logo-design-template_15146-192.jpg" alt="Pizza logo" width="170" height="160">
+					</div>
+				<figcaption>Pizza for everyone - logo</figcaption>
+				</div>
+			</figure>
+	<!-- continut principal -->
+			<section>
+			<h2>Comenzi</h2>
+			Numele:
+			<div id="myDropdown" class="dropdown-content">
+				<input type="text" placeholder="Search.." id="myInput">
+					<a href="#anamaria">Ana Maria</a>
+					<a href="#carinabota">Carina Bota</a>
+					<a href="#andreipop">Andrei Pop</a>
+					<a href="#cosminpopescu">Cosmin Popescu</a>
+			
+  			</div>
+			</section>
+			<section>
+			<article>
+			<br>
+			<br>
+			<br>	
+			<br>
+			<br>
+			<br>
+			<form action="abc" method="get">
+			<fieldset>
+				<legend><strong>Realizare comandă</strong></legend>
+				<table>
+				<tr>
+					<div class="custom-select" style="width:200px;">
+					<td> Tip pizza:
+					<input type="text" list="pizza" name="pizza" />
+  					<datalist id="pizza">
+    						<option value="Quattro Formaggi">Quattro Formaggi</option>
+    						<option value="Prosciutto Cotto" selected>Prosciutto Cotto</option>
+    						<option value="Capricciosa">Capricciosa</option>
+						<option value="Canibale">Canibale</option>
+  					</datalist>
+					</div>
+					<td rowspan="2"> Mărime:<br>
+  					<input type="checkbox" name="marime" value="1"> mare<br>
+ 					<input type="checkbox" name="marime" value="1" checked> medie<br>
+ 					<input type="checkbox" name="marime" value="1"> mică<br>
+
+					<td rowspan="2"> Tip blat:<br>
+  					<input type="radio" name="tipblat" value="1"> subțire<br>
+ 					<input type="radio" name="tipblat" value="1"> pufos<br>
+ 					<input type="radio" name="tipblat" value="1"> crocant<br>
+				</tr>
+				<tr>
+					
+					<td> Tip sos:
+					<input type="text" list="sos" name="sos" />
+  					<datalist id="sos">
+						<option value="ketchupdulce">Ketchup dulce</option>
+						<option value="ketchuppicant">Ketchup picant</option>
+    						<option value="Bbq">Bbq</option>
+    						<option value="usturoi">Usturoi</option>
+  					</datalist>
+					
+				</tr>
+				<tr style="height:60px">	
+					<td> Mod de livrare:<br>
+  					<input type="radio" name="livrare" value="1"> Ridicare personală
+ 					<input type="radio" name="livrare" value="1"> Livrare la domiciliu<br>
+					
+					<td rowspan="2" colspan="2"> <span style="color:blue">Opțiuni suplimentare</span>:<br>
+					<input type="checkbox" name="pref" value="1"> Fără gluten
+ 					<input type="checkbox" name="pref" value="1"> Vegană<br>
+				</tr>
+				<tr style="height:60px">	
+					<td> Mod de plată:<br>
+  					<input type="radio" name="plata" value="1"> Cash
+ 					<input type="radio" name="plata" value="1"> Card
+				</tr>
+				<tr>	
+					<td colspan="3"> Specificații suplimentare referitoare la comandă:<br>
+  					<textarea name="specificatii" cols="50" rows="5">
+					</textarea>
+
+				</tr>
+				<tr>	
+					<td> Total plată:<br>
+  					<textarea name="cost" cols="7" rows="1" disabled>
+					</textarea>
+				</tr>
+				</table>
+			<input type="submit" value="Editare">
+			<input type="submit" value="Ștergere">
+			<input type="submit" value="Trimite comanda">
+			</fieldset>
+			</form>
+			</article>
+			<aside>
+			<fieldset>
+				<legend><strong>Istoric comenzi</strong></legend>
+				<input id="Input" type="text" placeholder="Search..">
+				<br><br>
+				<table id="table">
+				<tr>	
+					<th>Nr. comandă</th>
+					<th>Data</th>
+					<th>Tip pizza</th>
+					<th>Preț</th>
+				</tr>
+				<tr>
+					<td> 10
+					<td> 23.02.2022
+					<td>Prosciutto Cotto
+					<td>27 lei
+				</tr>
+				<tr>
+					<td> 2
+					<td> 01.03.2022
+					<td>Quattro Formaggi
+					<td>25 lei
+				</tr>
+				<tr>
+					<td> 1
+					<td> 05.03.2022
+					<td>Capricciosa
+					<td>29 lei
+				</tr>
+			</table>
+			<script>
+	    	var mytable = document.getElementById("table");
+	    	var rows = mytable.rows;
+	    	var cells = rows[0].cells;
+		cells[0].onclick = 
+            function sortTable() {
+                var table, i, x, y;
+                table = document.getElementById("table");
+                var switching = true;
+  
+                while (switching) {
+                    switching = false;
+                    var rows = table.rows;
+  
+                    // for pt a parcurge randurile
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        var Switch = false;
+  
+                        // cele doua elemente dupa care sa facem interschimbarea
+                        x = rows[i].getElementsByTagName("TD")[0];
+                        y = rows[i + 1].getElementsByTagName("TD")[0];
+  
+                        // Check if 2 rows need to be switched
+                        if (x.innerHTML < y.innerHTML)
+                            {
+  
+                            // marcam switch pt ca trebuie interschimbate
+                            Switch = true;
+                            break;
+                        }
+                    }
+                    if (Switch) {
+                        // interschimbarea
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+        </script>
+			</fieldset>
+			</aside>
+		</section>
+	<hr>
+	<!-- footer -->
+		<footer>
+		&copy; Ilinca Popovici- 01.03.2022
+		</footer> 
+	</body>
+
+</html>

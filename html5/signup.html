@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pizza for everyone</title>
+		<link href='style_signup.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script>
+		
+		$(document).ready(function(){
+			$(".popup img").on('click',function () {
+				var $src=$(this).attr("src");
+				$(".show").fadeIn();
+				$(".img-show img").attr("src",$src);
+			});
+			$("span, overlay").click(function (){
+				$(".show").fadeOut();
+			});
+		});
+		</script>
+	</head>
+	<body>
+	<!-- header -->
+		<header>
+			<!-- meniu -->
+			<nav>
+			<div class="navbar">
+				<div class="menu">
+						<i class="fa fa-heart" style="fontsize:60px;color:purple;"></i>
+						<div><a href="signup.html">SIGN UP</a></div>
+						<div><a href="login.html">LOGIN</a></div>
+						<div class="subnav">
+    							<button class="subnavbtn"><a href="lista_comenzi.html">COMENZI</a> <i class="fa fa-caret-down"></i></button>
+    							<div class="subnav-content">
+      								<a href="meniu.html">MENIU</a>
+   							</div>
+						</div>
+				</div>
+			</div>
+			<img id="home" src="img_trans.gif" width="1" height="1">
+			<img id="next" src="img_trans.gif" width="1" height="1">
+			</nav>
+		</header>
+			<!-- logo -->
+			<figure>
+				<div id="div1">
+					<div id="div2">
+					<img src="pizza-logo-design-template_15146-192.jpg" alt="Pizza logo" width="170" height="160">
+					</div>
+				<figcaption>Pizza for everyone - logo</figcaption>
+				</div>
+			</figure>
+		
+	
+	<!-- continut principal -->
+		
+		<main>
+		<section>
+				<div class="popup">
+					<img src="Pizza-cu-ton-facuta-in-casa-500x500.jpg" alt="" width="380" class="active">
+					<img src="images.jpg" alt="" width="380">
+					<img src="pizza_2-1080x960.jpg" alt="" width="380">
+				</div>
+				<div class="show">
+					<div class="overlay"></div>
+					<div class="img-show">
+						<span>X</span>
+						<img src"">
+					</div>
+				<div>
+			</section>
+		<article>
+		<h1> Sign up </h1>
+		<form id="form" action="abc" method="get">
+		<ol type="A" start="1"> 		
+			<li>Date personale<br>
+			<table>
+				<tr>
+					<td> Nume:
+					<td><input type="text" name="nume" size="30"></td>
+					<td> Prenume:
+					<td><input type="text" name="prenume" size="30"></td>
+				</tr>
+				<tr>
+					<td> Data nașterii:
+					<td colspan="3"><input id="date" type="text" name="data">
+					<canvas id="myCanvas3" width="40" height="20"></canvas></td>
+					<script>
+					function validate_date(input,string) { 
+					const canvas = document.getElementById('myCanvas3');
+					const context = canvas.getContext('2d');
+					const centerX = canvas.width / 2;
+					const centerY = canvas.height / 2;
+					const radius = 6;
+
+					context.beginPath();
+					var result;
+					var regex;
+					if( string === "zz/ll/aaaa"){
+						regex = new RegExp('^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)[0-9]{4}$');
+						result = regex.test(input);
+						console.log(input);
+					}
+					else if(string === "ll/zz/aaaa"){
+						regex = new RegExp('/^(((0)[0-9])|((1)[0-2]))(\/)([0-2][0-9]|(3)[0-1])(\/)\d{4}$/');
+						result = regex.test(input);
+					}
+					else if(string === "zz/ll/aa"){
+						regex = new RegExp('/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{2}$/');
+						result = regex.test(input);
+					}
+					console.log(result);
+					if(result == false) context.fillStyle = 'red';
+					else context.fillStyle = 'green';
+
+					context.strokeStyle = '#0077aa47';
+					context.lineWidth = 2;
+
+					context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+					context.fill();
+					context.stroke();		
+					if(result == false) return false;
+					else return true;
+				}
+				var myElem = document.getElementById("date");
+				myElem.addEventListener('change', (e) => {  
+  				validate_date(e.target.value,"zz/ll/aaaa");  
+				});
+				</script>
+	   			</tr>
+				<tr>
+					<td> Județ:
+					<td>
+					<div id="container1"></div>
+					</td>	
+					<td>
+					<div id="container2"></div>
+					</td>
+					<td>
+					<div id="container3"></div>
+					</td>
+					<script type="text/javascript">
+					var container1 = document.getElementById("container1");
+ 					var judete= ['Alba', 'Bistrita-Nasaud', 'Brasov', 'Cluj', 'Covasna', 'Mures', 'Harghita', 'Salaj', 'Sibiu'];
+					var string1 = '<select name="judete">';
+ 					for (var i = 0; i < judete.length; i++)
+						if (judete[i] == 'Cluj')
+							string1 += '<option selected value="' + i + '">' + judete[i] + '</option>';
+				
+						else
+							string1 += '<option value="' + i + '">' + judete[i] + '</option>';
+ 					string1 += '</select>';
+					container1.innerHTML = string1;
+					var container2 = document.getElementById("container2");
+					container2.innerHTML = 'Localitate:';
+					var cont1 = document.getElementById("container1");
+					cont1.addEventListener('change', (e) => {  
+  					show_orase(e.target.value);  
+					});
+					function show_orase(poz_judet_selectat){
+					var container3 = document.getElementById("container3");
+					var cluj = ['Cluj-Napoca', 'Turda', 'Dej', 'Campia Turzii', 'Gherla', 'Huedin'];
+					var alba = ['Alba Iulia', 'Sebes', 'Aiud', 'Cugir', 'Blaj', 'Ocna Mures', 'Zlatna', 'Campeni', 'Teius', 'Abrud', 'Baia de Aries'];
+					var bistrita_nasaud =['Bistrita', 'Beclean', 'Sangeorz-Bai', 'Nasaud'];
+					var brasov =['Brasov', 'Fagaras', 'Sacele', 'Zarnesti', 'Codlea', 'Rasnov', 'Victoria', 'Rupea', 'Ghimbav', 'Predeal'];
+					var string2 = '<select name="orase">';
+					if (judete[poz_judet_selectat] == 'Cluj')
+						for (var j = 0; j < cluj.length; j++)
+							if (cluj[j] == 'Cluj-Napoca')
+								string2 += '<option selected value="' + j + '">' + cluj[j] + '</option>';
+							else
+								string2 += '<option value="' + j + '">' + cluj[j] + '</option>';
+					if (judete[poz_judet_selectat] == 'Alba')
+						for (var j = 0; j < alba.length; j++)
+							string2 += '<option value="' + j + '">' + alba[j] + '</option>';
+					if (judete[poz_judet_selectat] == 'Bistrita-Nasaud')
+						for (var j = 0; j < bistrita_nasaud.length; j++)
+							string2 += '<option value="' + j + '">' + bistrita_nasaud[j] + '</option>';
+					if (judete[poz_judet_selectat] == 'Brasov')
+						for (var j = 0; j < brasov.length; j++)
+							string2 += '<option value="' + j + '">' + brasov[j] + '</option>';
+					string2 += '</select>';
+					container3.innerHTML = string2;
+					}
+					</script>
+					
+				</tr>
+				<tr>
+					<td rowspan="2"> Adresa:
+					<td>Strada:<input type="text" name="strada" size="30"></td>
+					<td>Nr.<input type="text" name="nr" size="4"></td>
+				<tr>
+					<td>Bl.<input type="text" name="nr" size="4"></td>
+					<td>Et. <input type="text" size="4" name="et">
+					<td>Ap. <input type="text" size="4" name="ap">
+				</tr>
+				<tr>
+					<td>E-mail:</td>
+					<td><input id="email" type="email" size="30" name="email">
+					<canvas id="myCanvas" width="40" height="20"></canvas></td>
+					<script>
+					function validate_email(input) { 
+					var regex = new RegExp('[a-z0-9]+[@]{1,1}[a-z]+\.[a-z]{2,3}');
+					var result = regex.test(input);
+					const canvas = document.getElementById('myCanvas');
+					const context = canvas.getContext('2d');
+					const centerX = canvas.width / 2;
+					const centerY = canvas.height / 2;
+					const radius = 6;
+
+					context.beginPath();
+	
+					if(result == false) context.fillStyle = 'red';
+					else context.fillStyle = 'green';
+
+					context.strokeStyle = '#0077aa47';
+					context.lineWidth = 2;
+
+					context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+					context.fill();
+					context.stroke();
+					if(result == false) return false;
+					else return true;
+				}
+				var myElem = document.getElementById("email");
+				myElem.addEventListener('change', (e) => {  
+  				validate_email(e.target.value);  
+				});
+				</script>
+	   			</tr>
+	   			<tr>
+					<td>Telefon:</td>
+					<td><input id="tel" type="text" name="telefon">
+					<canvas id="myCanvas2" width="40" height="20"></canvas></td>
+					<script>
+					function validate_tel(input) { 
+					var regex = new RegExp('[(][+][4][0][)][0-9]{9}');
+					var result = regex.test(input);
+					const canvas = document.getElementById('myCanvas2');
+					const context = canvas.getContext('2d');
+					const centerX = canvas.width / 2;
+					const centerY = canvas.height / 2;
+					const radius = 6;
+
+					context.beginPath();
+	
+					if(result == false) context.fillStyle = 'red';
+					else context.fillStyle = 'green';
+
+					context.strokeStyle = '#0077aa47';
+					context.lineWidth = 2;
+
+					context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+					context.fill();
+					context.stroke();
+				}
+				var myElem = document.getElementById("tel");
+				myElem.addEventListener('change', (e) => {  
+  				validate_tel(e.target.value);  
+				});
+				</script>
+	   			</tr>
+			</table>
+			</li>
+			<li>Alergii & Intoleranțe
+				<details>
+				<summary>Opțiune fără gluten</summary>
+				<p>Pizzeria noastra ofera oportunitatea de a prepara pizza<p>
+				<ol>
+					<li> <div>fără gluten - pentru persoanele celiace sau care țin regim </div> <a href="https://www.fda.gov/consumers/consumer-updates/gluten-free-means-what-it-says">What is gluten-free</a></li>
+					<button id="next">Next</button>
+					<button id="previous">Previous</button>
+					<li id="hide" style="display:none"> <div>vegană - pentru persoanele care țin post sau țin regim </div><a href="https://vegan.com/info/what/">What is vegan</a></li>
+					<script>
+					function timer() {
+  					 document.getElementById('hide').style = 'visible';
+    					 }
+					setTimeout(timer, 3000);
+					var t=setTimeout(timer, 3000);
+					var myElem = document.getElementById("next"); 
+					myElem.addEventListener('click', clearTimeout(t));
+					
+					</script>
+				</ol>	
+				</details>
+				<p>Completați în chenarul următor dacă aveți alergii/intoleranțe despre care ar trebui să știm pentru a 
+				prepara cea mai bună pizza pentru dumneavoastră</p> 
+  				<textarea name="specificatii" cols="60" rows="5">
+				</textarea>
+			</li>
+			<li>Termeni & condiții
+				<input type="checkbox" name="tc">Sunt de acord cu <a href="terms.html">Termeni și condiții</a>
+			</li>
+		</ol>
+		<input type="submit" name="signup" value="Sign up">
+		</form>
+		</article>
+		</main>
+		<script>
+			var form = document.getElementById('form');
+			form.onsubmit = function() {
+				if(validate_date(form.date.value) || form.date.value == ''){
+					alert('date is incorrect');
+					return false;
+				}
+				if(!validate_email(form.email.value) || form.email.value == ''){
+					alert('email is incorrect');
+					return false;
+				}
+				if(!validate_tel(form.tel.value) || form.tel.value == ''){
+					alert('number is incorrect');
+					return false;
+				}
+				return true;
+			};
+		</script>
+		
+	<!-- footer -->
+		<!-- footer -->
+		<div class="footer">
+			<div>
+			<hr>
+			&copy; Ilinca Popovici- 01.03.2022
+			</div> 
+		</div>
+	</body>
+
+</html>

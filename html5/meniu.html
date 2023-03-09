@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pizza for everyone</title>
+		<link href='style_meniu.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script>
+		$(document).ready(function(){
+			$('.tab_container:first').show();
+			$('.tab_navigation li:first').addClass('active');
+			$('.tab_navigation li').click(function(event){
+				index=$(this).index();
+				$('.tab_navigation li').removeClass('active');
+				$(this).addClass('active');
+				$('.tab_container').hide();
+				$('.tab_container').eq(index).show();
+			});
+			/*
+			function slide() {
+				var currentImg;
+				var nextImg;
+				var nr=3;
+				while(nr!=0){
+					currentImg = $('.active');
+					nextImg = currentImg.next();
+					if(nextImg.length){
+						currentImg.removeClass('active').slideUp(500);
+						nextImg.addClass('active').delay(500).slideUp(500);
+					}
+					nr--;
+				}
+			}
+			slide();
+			*/
+			$('.next').on('click',function(){
+				var currentImg = $('.active');
+				var nextImg = currentImg.next();
+				if(nextImg.length){
+					currentImg.removeClass('active').css('z-index',-10).animate({left:'-100px'});
+					nextImg.addClass('active').css('z-index',10);
+				}
+			});
+			$('.prev').on('click',function(){
+				var currentImg = $('.active');
+				var prevImg = currentImg.prev();
+				if(prevImg.length){
+					currentImg.removeClass('active').slideToggle();
+					prevImg.addClass('active').css('z-index',10);
+				}
+			});
+
+		
+		});
+		</script>
+	</head>
+	<body>
+	<!-- header -->
+		<header>
+			<!-- meniu -->
+			<nav>
+			<div class="navbar">
+				<div class="menu">
+						<i class="fa fa-heart" style="fontsize:60px;color:purple;"></i>
+						<div><a href="signup.html">SIGN UP</a></div>
+						<div><a href="login.html">LOGIN</a></div>
+						<div class="subnav">
+    							<button class="subnavbtn"><a href="lista_comenzi.html">COMENZI</a> <i class="fa fa-caret-down"></i></button>
+    							<div class="subnav-content">
+      								<a href="meniu.html">MENIU</a>
+   							</div>
+						</div>
+				</div>
+			</div>
+			<img id="home" src="img_trans.gif" width="1" height="1">
+			<img id="next" src="img_trans.gif" width="1" height="1">
+			</nav>
+		</header>
+			<!-- logo -->
+			<figure>
+				<div id="div1">
+					<div id="div2">
+					<img src="pizza-logo-design-template_15146-192.jpg" alt="Pizza logo" width="170" height="160">
+					</div>
+				<figcaption>Pizza for everyone - logo</figcaption>
+				</div>
+			</figure>
+	<!-- continut principal -->
+		<main>
+			<section>
+			<h2> Pizzaaa image slider1</h2>
+			<div class="slider-box">
+				<div class="container">
+					<div class="main-slider">
+						<img src="Pizza-cu-ton-facuta-in-casa-500x500.jpg" alt="" width="380">
+						<input checked="checked" id="id1" name="slide_switch" type="radio">
+						<label for="id1"><img src="Pizza-cu-ton-facuta-in-casa-500x500.jpg" width="100"></label>
+						<img src="Pizza-cu-ton-facuta-in-casa-500x500.jpg" alt="" width="380">
+			
+						<input id="id2" name="slide_switch" type="radio">
+						<label for="id2"><img src="images.jpg" width="100"></label>
+						<img src="images.jpg" alt="" width="380">
+		
+						<input id="id3" name="slide_switch" type="radio">
+						<label for="id3"><img src="pizza_2-1080x960.jpg" width="100"></label>
+						<img src="pizza_2-1080x960.jpg" alt="" width="380">
+					</div>
+				</div>
+			</div>
+			</section>
+			<section>
+			<h2> Pizzaaa image slider2</h2>
+			<p> Introduceti numarul de imagini </p>
+			<input type="number" name="nr_img" size="10">
+			<p> Introduceti numarul de secunde la care se va schimba imaginea </p>
+			<input type="number" name="nr_sec" size="10">
+			<div class="slider-box">
+				<div class="container_">
+					<div class="slider-outer">
+						<img src="arrow-left.png" class="prev" alt="Prev"  width="80">
+						<div class="slider-inner">
+							<img src="Pizza-cu-ton-facuta-in-casa-500x500.jpg" alt="" width="380" class="active">
+							<img src="images.jpg" alt="" width="380">
+							<img src="pizza_2-1080x960.jpg" alt="" width="380">
+							
+						</div>
+						<img src="arrow-right.png" class="next" alt="Next"  width="80">
+					</div>
+				</div>
+			</div>
+			</section>
+			<section>
+				<div class="container3">
+				<ul class="tab_navigation">
+					<li class="active">Meniu</li>
+					<li>Sosuri</li>
+					<li>Noutati</li>
+				</ul>
+				<div class="tab_container_area">
+					<div class="tab_container">
+						<p>Pizza1</p>
+						<p>Pizza2</p>
+						<p>Pizza3</p>
+					</div>
+					<div class="tab_container">
+						<p>Sos1</p>
+						<p>Sos2</p>
+						<p>Sos3</p>
+					</div>
+					<div class="tab_container">
+						<p>Detalii</p>
+					</div>
+			</section>
+			<section>
+				<h3> Meniu </h3>
+				<table>
+				<tr>
+					<td> Pizza Quatro Formaggi - 28 lei
+					<div class="content_img">
+					<img src="pizza_2-1080x960.jpg" style="width:170px;height:170px;margin-left:15px;">
+					<div>Pizza QF</div>
+					</div>
+				</tr>
+				<tr>
+					
+					<td> Pizza Pepperoni - 31 lei
+					<div class="content_img">
+					<img src="images.jpg" style="width:170px;height:170px;margin-left:15px;">
+					<div>Pizza P</div>
+					</div>
+				</tr>
+				<tr>
+					
+					<td> Pizza cu ton- 30 lei
+					<div class="content_img">
+					<img src="Pizza-cu-ton-facuta-in-casa-500x500.jpg" style="width:170px;height:170px;margin-left:15px;">
+					<div>Pizza T</div>
+					</div>
+				</tr>
+				</table>
+			</section>
+			
+		</main> 
+	
+	<!-- footer -->
+		<footer>
+		<div class="footer">
+			<div>
+			<hr>
+			&copy; Ilinca Popovici- 01.03.2022
+			</div> 
+		</div>
+		</footer>
+	</body>
+
+</html>
